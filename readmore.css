@@ -36,7 +36,7 @@ body {
 
 .space-link:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(212, 138, 255, 0.8), 0 0 40px rgba(219, 90, 255, 0.6);
+  box-shadow: 0 0 20px rgba(138, 200, 255, 0.911), 0 0 40px rgba(239, 150, 255, 0.586);
 }
 
 /* Scroll Snap Sections */
