@@ -88,7 +88,7 @@ body {
 
 /* Carousel Section */
 .carousel {
-  margin: 20px auto;
+  margin: 0px auto;
   min-width: 850px;
   z-index: 3;
 }
