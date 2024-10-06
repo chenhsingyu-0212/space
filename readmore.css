@@ -18,24 +18,25 @@ body {
 }
 
 .space-link {
+  z-index: 5;
   position: fixed;
   top: 20px;
   left: 20px;
   background-color: #1a1a1a;
-  color: #00ffcc;
-  border: 2px solid #00ffcc;
+  color: #006eff;
+  border: 2px solid #004cff;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
   font-family: 'Arial', sans-serif;
   font-size: 16px;
-  box-shadow: 0 0 15px rgba(0, 255, 204, 0.6), 0 0 30px rgba(0, 255, 204, 0.4);
+  box-shadow: 0 0 15px rgba(145, 127, 246, 0.6), 0 0 30px rgba(33, 0, 197, 0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .space-link:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(0, 255, 204, 0.8), 0 0 40px rgba(0, 255, 204, 0.6);
+  box-shadow: 0 0 20px rgba(212, 138, 255, 0.8), 0 0 40px rgba(219, 90, 255, 0.6);
 }
 
 /* Scroll Snap Sections */
