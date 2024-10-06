@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Neptune</title>
+    <link rel="stylesheet" href="./readmore.css" />
+  </head>
+  <body>
+    <!-- Hero Section with Scroll-Snap -->
+    <div class="container">
+      <!-- First section with text "NEPTUNE" -->
+      <div class="snap-section hero">
+        <div class="glow-text">MARS</div>
+      </div>
+
+      <!-- Carousel Section -->
+      <div class="snap-section container-info">
+        <div>&nbsp;</div>
+        <div class="carousel">
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Moons</h2>
+              <p>
+                Mars has two small, irregularly shaped moons: Phobos and Deimos. Phobos is larger than Deimos, and both are relatively small and have weak gravitational fields, resulting in their non-spherical shapes.
+Phobos, the inner moon, measures 27 x 21 x 19 kilometers and has an orbit that takes about 8 hours, located approximately 9,000 kilometers from Mars.
+The left image shows a photograph taken by the Viking 1 spacecraft, capturing the large crater Stickney, which reaches 10 kilometers across—about half the diameter of the moon itself.
+Deimos, the outer moon, measures 15 x 12 x 11 kilometers and has an orbit that takes about 30 hours, located approximately 23,000 kilometers from Mars. Both moons orbit in the same direction as Mars's rotation. The left image is also from the Viking 1 spacecraft.</p>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Surface Environment</h2>
+              <p>
+                Influenced by science fiction literature and movies, humanity has long perceived Mars as a second potential home for humankind, possibly inhabited by Martians.
+In many respects, this perception may hold some truth, as Mars has the most Earth-like surface environment among the nine planets. Although Mars is smaller than Earth, it has similarities in axial tilt (25.19 degrees, close to Earth's 23.44 degrees), rotation speed (1.026 Earth days), and surface temperature (ranging from -87 to 5 degrees Celsius, which is comparable to Earth's -50 to 50 degrees Celsius). Therefore, Mars experiences seasons similar to Earth, and its day length is comparable, meaning that human habits would not require drastic adjustments. The temperatures are also much more pleasant than those on Venus and Mercury, fueling interest and anticipation for future Mars research.
+According to the latest studies in 2024, scientists have discovered signs of liquid water in certain regions of Mars. The Mars rovers "Curiosity" and "Perseverance" found granular salts, suggesting that water may have existed in Mars's past. Additionally, scientists have confirmed the thickness of the ice layers at Mars's poles and the potential for water resources, providing crucial clues for future Mars exploration and human colonization.
+              </p>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Planetary Structure</h2>
+              <p>
+                It is hypothesized that Mars has a core primarily composed of iron, containing lighter elements like sulfur and magnesium, with a smaller proportion compared to Earth's core. The outer layer of the core is enveloped by a thick layer of magnesium oxide-rich silicate mantle, with a rocky crust on the surface. Mars has the lowest density among terrestrial planets, at only 3.93 g/cc.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)">
+
+          </span>
+          <span class="dot" onclick="currentSlide(2)">
+
+          </span>
+          <span class="dot" onclick="currentSlide(3)">
+
+          </span>
+        </div>
+      </div>
+
+      <!-- Quiz Section -->
+      <div class="quiz-section snap-section">
+        <h2>Mars Quiz</h2>
+        <div id="quiz" class="quiz">
+          How many MOONS Mars have? Click to reveal!
+        </div>
+        <div id="quiz-answer" class="quiz-answer">Answer: Two moons</div>
+      </div>
+
+      <!-- 3D -->
+      <div class="quiz-section snap-section">
+        <iframe
+          src="https://eyes.nasa.gov/apps/solar-system/#/mars?embed=true"
+          title="Explore in 3D—Eyes on the Solar System"
+          class="smd-iframe-iframe margin-left-auto margin-right-auto border-0"
+          allow="fullscreen"
+          data-gtm-yt-inspected-12="true"
+        height="600px" width="95%"
+          >Unable to render the provided source</iframe
+        >
+      </div>
+    </div>
+
+    <!-- JavaScript for Carousel and Quiz Interaction -->
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("carousel-slide");
+        const dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+          text.style.display = "block";
+          textUp.style.display = "block";
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+          text.style.display = "none";
+          textUp.style.display = "none";
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+
+      // Quiz interaction
+      document.getElementById("quiz").addEventListener("click", function () {
+        const answer = document.getElementById("quiz-answer");
+        if (answer.style.display === "none" || answer.style.display === "") {
+          answer.style.display = "block";
+        } else {
+          answer.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
