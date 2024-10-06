@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Mercury</title>
+    <link rel="stylesheet" href="./readmore.css" />
+  </head>
+  <body>
+    <!-- Hero Section with Scroll-Snap -->
+    <div class="container">
+      <!-- First section with text "Mercury" -->
+      <div class="snap-section hero">
+        <img src="./images/Neptune.png" alt="Mercury Image" />
+        <div class="glow-text">Mercury</div>
+      </div>
+
+      <!-- Carousel Section -->
+      <div class="snap-section container-info">
+        <div>&nbsp;</div>
+        <div class="carousel">
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Introduction</h2>
+              <p>
+                Mercury is the innermost and closest planet to the Sun among the eight planets in the solar system, 
+                orbiting at a distance of about 0.39 astronomical units from the Sun. It is a small, cratered planet. 
+                After Pluto was reclassified as a dwarf planet, Mercury became the smallest of the eight major planets. 
+              </p>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Mercury's Surface Appearance</h2>
+              <p>
+                Mercury has a radius of about 2,440 kilometers, making it the smallest of the eight planets. How small is it? Mercury is even smaller than Ganymede, Jupiter's largest moon, and Titan, Saturn's largest moon! In photos, Mercury’s clear edges are visible, indicating that it does not have a thick atmosphere.
+
+Mercury’s surface resembles the Moon's, with many impact craters, but unlike the Moon, it lacks the "maria" formations. Large cliffs and steep ridges are also quite common. Additionally, there are smooth plains on Mercury, likely remnants of ancient volcanic activity. The largest crater on Mercury is the "Caloris Basin," with a diameter of about 1,300 kilometers, roughly one-fourth the diameter of the planet itself, and it is thought to have been formed by an impact from an object about 100 kilometers in diameter.
+              </p>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Mercury's Surface Environment</h2>
+              <p>
+                Mercury experiences extreme temperature variations, with daytime temperatures soaring to 430°C and nighttime temperatures dropping to as low as -170°C, making it an incredibly inhospitable environment for humans. It also has the largest temperature range of any planet in the solar system. However, recent radar observations and NASA’s MESSENGER mission have revealed that there might be ice present in the permanently shadowed craters at Mercury's north and south poles. This ice is believed to have been delivered by comets or asteroids and preserved in these shadowed regions.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
+
+      <!-- Quiz Section -->
+      <div class="quiz-section snap-section">
+        <h2>Mercury Quiz</h2>
+        <div id="quiz" class="quiz">
+          What is Mercury's Atmosphere? Click to reveal!
+        </div>
+        <div id="quiz-answer" class="quiz-answer">Answer: Mercury has almost no stable atmosphere and is instead surrounded by a thin exosphere composed of trace amounts of gases such as hydrogen, helium, sodium, and oxygen. </div>
+      </div>
+
+      <!-- 3D -->
+      <div class="quiz-section snap-section">
+        <iframe
+          src="https://eyes.nasa.gov/apps/solar-system/#/mercury?embed=true"
+          title="Explore in 3D—Eyes on the Solar System"
+          class="smd-iframe-iframe margin-left-auto margin-right-auto border-0"
+          allow="fullscreen"
+          data-gtm-yt-inspected-12="true"
+          height="600px"
+          width="95%"
+          >Unable to render the provided source</iframe
+        >
+      </div>
+    </div>
+
+    <!-- JavaScript for Carousel and Quiz Interaction -->
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("carousel-slide");
+        const dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+          text.style.display = "block";
+          textUp.style.display = "block";
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+          text.style.display = "none";
+          textUp.style.display = "none";
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+
+      // Quiz interaction
+      document.getElementById("quiz").addEventListener("click", function () {
+        const answer = document.getElementById("quiz-answer");
+        if (answer.style.display === "none" || answer.style.display === "") {
+          answer.style.display = "block";
+        } else {
+          answer.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

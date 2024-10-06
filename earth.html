@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Earth</title>
+    <link rel="stylesheet" href="./readmore.css" />
+  </head>
+  <body>
+    <!-- Hero Section with Scroll-Snap -->
+    <div class="container">
+      <!-- First section with text "Earth" -->
+      <div class="snap-section hero">
+        <img src="./images/Neptune.png" alt="Earth Image" />
+        <div class="glow-text">Earth</div>
+      </div>
+
+      <!-- Carousel Section -->
+      <div class="snap-section container-info">
+        <div>&nbsp;</div>
+        <div class="carousel">
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Introduction</h2>
+              <p>
+                Earth is the third planet among the eight planets in the solar system, possessing one satellite—the Moon (commonly known as Luna), situated between Venus and Mars. The average distance from Earth to the Sun is one astronomical unit, approximately 150 million kilometers.             </p>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>The Physical Appearance of Earth</h2>
+              <p>
+                Earth is the only planet in the solar system with significant amounts of liquid water on its surface, with about 70% covered by oceans, which are crucial for nurturing life. When viewed from space, Earth appears as a beautiful blue planet enveloped in a layer of white clouds rich in water vapor. Although water has been found elsewhere in the solar system, most of it exists in ice form.  </p>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>The Surface Environment of Earth</h2>
+              <p>
+                Earth is currently the only known planet in the solar system that supports life, with surface temperatures ranging approximately from -60°C to 50°C, which allows for conditions that are neither too hot nor too cold. Because Earth's axis of rotation is tilted at about 23.44 degrees, it experiences seasonal changes.            </p>
+            </div>
+          </div>
+        </div>
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
+
+      <!-- Quiz Section -->
+      <div class="quiz-section snap-section">
+        <h2>Mercury Quiz</h2>
+        <div id="quiz" class="quiz">
+          What is The Internal Structure of Earth? Click to reveal!
+        </div>
+        <div id="quiz-answer" class="quiz-answer">Answer: Earth's internal structure is divided into three main layers: the crust, the mantle, and the core. </div>
+      </div>
+
+      <!-- 3D -->
+      <div class="quiz-section snap-section">
+        <iframe
+          src="https://eyes.nasa.gov/apps/solar-system/#/earth?embed=true"
+          title="Explore in 3D—Eyes on the Solar System"
+          class="smd-iframe-iframe margin-left-auto margin-right-auto border-0"
+          allow="fullscreen"
+          data-gtm-yt-inspected-12="true"
+          height="600px"
+          width="95%"
+          >Unable to render the provided source</iframe
+        >
+      </div>
+    </div>
+
+    <!-- JavaScript for Carousel and Quiz Interaction -->
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("carousel-slide");
+        const dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+          text.style.display = "block";
+          textUp.style.display = "block";
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+          text.style.display = "none";
+          textUp.style.display = "none";
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+
+      // Quiz interaction
+      document.getElementById("quiz").addEventListener("click", function () {
+        const answer = document.getElementById("quiz-answer");
+        if (answer.style.display === "none" || answer.style.display === "") {
+          answer.style.display = "block";
+        } else {
+          answer.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Venus</title>
+    <link rel="stylesheet" href="./readmore.css" />
+  </head>
+  <body>
+    <!-- Hero Section with Scroll-Snap -->
+    <div class="container">
+      <!-- First section with text "Venus" -->
+      <div class="snap-section hero">
+        <img src="./images/Neptune.png" alt="Venus Image" />
+        <div class="glow-text">Venus</div>
+      </div>
+
+      <!-- Carousel Section -->
+      <div class="snap-section container-info">
+        <div>&nbsp;</div>
+        <div class="carousel">
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Introduction</h2>
+              <p>
+                Venus is the second planet of the eight planets in the solar system, orbiting at a distance of approximately 0.72 astronomical units from the Sun, positioned between Mercury and Earth. A single day on Venus is equivalent to 243 Earth days, and its magnetic field is only about one one-hundred-thousandth as strong as Earth’s. Uniquely, Venus rotates in the opposite direction to Earth and most other planets, making it stand out as one of the solar system's more peculiar planets.
+              </p>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Surface Features of Venus</h2>
+              <p>
+                Venus is shrouded by a thick yellow atmosphere that makes it impossible to observe the surface through a telescope. In 1975, the Soviet Union launched the Venera 9 and Venera 10 missions, which successfully landed on Venus and captured images of the planet’s surface. These images revealed that Venus' surface is primarily composed of basaltic rock, with boulders ranging in size from 30 centimeters to 1 meter.
+              </p>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Environmental Conditions on Venus</h2>
+              <p>
+                Venus’ thick carbon dioxide atmosphere leads to an intense greenhouse effect, resulting in surface temperatures reaching an extreme 470°C, creating a hellish environment. The atmospheric pressure on the surface is 90 times that of Earth. Under these extreme conditions, liquid water cannot exist, making Venus inhospitable for life as we know it. The surface gravity on Venus is about 0.91 times that of Earth's, fairly similar to our planet.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)"></span>
+          <span class="dot" onclick="currentSlide(2)"></span>
+          <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+      </div>
+
+      <!-- Quiz Section -->
+      <div class="quiz-section snap-section">
+        <h2>Mercury Quiz</h2>
+        <div id="quiz" class="quiz">
+          What is Atmospheric Composition of Venus? Click to reveal!
+        </div>
+        <div id="quiz-answer" class="quiz-answer">Answer: Venus’ atmosphere is composed of 96% carbon dioxide and 3% nitrogen.</div>
+      </div>
+
+      <!-- 3D -->
+      <div class="quiz-section snap-section">
+        <iframe
+          src="https://eyes.nasa.gov/apps/solar-system/#/venus?embed=true"
+          title="Explore in 3D—Eyes on the Solar System"
+          class="smd-iframe-iframe margin-left-auto margin-right-auto border-0"
+          allow="fullscreen"
+          data-gtm-yt-inspected-12="true"
+          height="600px"
+          width="95%"
+          >Unable to render the provided source</iframe
+        >
+      </div>
+    </div>
+
+    <!-- JavaScript for Carousel and Quiz Interaction -->
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("carousel-slide");
+        const dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+          text.style.display = "block";
+          textUp.style.display = "block";
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+          text.style.display = "none";
+          textUp.style.display = "none";
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+
+      // Quiz interaction
+      document.getElementById("quiz").addEventListener("click", function () {
+        const answer = document.getElementById("quiz-answer");
+        if (answer.style.display === "none" || answer.style.display === "") {
+          answer.style.display = "block";
+        } else {
+          answer.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
