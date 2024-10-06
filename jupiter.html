@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore Neptune</title>
+    <link rel="stylesheet" href="./readmore.css" />
+  </head>
+  <body>
+    <!-- Hero Section with Scroll-Snap -->
+    <div class="container">
+      <!-- First section with text "NEPTUNE" -->
+      <div class="snap-section hero">
+        <div class="glow-text">JUPITER</div>
+      </div>
+
+      <!-- Carousel Section -->
+      <div class="snap-section container-info">
+        <div>&nbsp;</div>
+        <div class="carousel">
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Moons of Jupiter </h2>
+              <p>
+                Jupiter has over 61 moons, making it the planet with the most moons in the solar system. Four particularly large moons are located closer to Jupiter: Io, Europa, Ganymede, and Callisto, which were first discovered by the physicist Galileo and are collectively known as the Galilean moons.
+The right image was taken by the Mars Global Surveyor (MGS) on May 8, 2003, showing a composite image of Jupiter and its moons, from left to right: Callisto, Ganymede, Jupiter, and Europa.
+From the image, we can see the significant size difference between Jupiter and its moons. Except for Europa, each of the Galilean moons is larger than the Moon, with Ganymede being even larger than Mercury. Io is similar in size to the Moon but is home to numerous active volcanoes and frequent tectonic activity. It is believed that the energy for Io's volcanic activity comes from Jupiter's strong tidal forces. Europa's surface is marked with countless stripes and patterns, with almost no visible impact craters, indicating a relatively young surface. Ganymede has a radius of about 2,600 kilometers, making it the largest moon in the solar system, even larger than Mercury.
+Research in 2024 suggests that beneath Europa's icy shell, there may be a vast ocean of liquid water, making it a hotspot for the search for extraterrestrial life. Scientists are planning future missions to explore this region further.</p>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Rings of Jupiter</h2>
+              <p>
+                Jupiter does have rings, although they are far less prominent than those of Saturn. Spectral observations from the ground indicate that Jupiter's thin rings may be composed of rocky (silicate) materials and are over 100,000 kilometers wide.</p>
+            </div>
+          </div>
+
+          <div class="carousel-slide">
+            <div class="carousel-content">
+              <h2>Surface Environment of Jupiter</h2>
+              <p>
+                Jupiter is primarily composed of hydrogen and helium. Being farther from the Sun, its surface temperature can drop to around -150 degrees Celsius. The heat emitted from within Jupiter is more than twice what it receives from the Sun, meaning that if it relied solely on solar heat, its surface temperature would be another 20 degrees lower. Observations in 2024 found that the heat release patterns in certain regions of Jupiter seem to be changing, which could affect the stability of its atmosphere.</p>
+            </div>
+          </div>
+        </div>
+        <div class="dot-container">
+          <span class="dot" onclick="currentSlide(1)">
+
+          </span>
+          <span class="dot" onclick="currentSlide(2)">
+
+          </span>
+          <span class="dot" onclick="currentSlide(3)">
+
+          </span>
+        </div>
+      </div>
+
+      <!-- Quiz Section -->
+      <div class="quiz-section snap-section">
+        <h2>Jupiter Quiz</h2>
+        <div id="quiz" class="quiz">
+          How long does wide of Jupiter's ring? Click to reveal!
+        </div>
+        <div id="quiz-answer" class="quiz-answer">Answer: over 100,000 kilometers wide</div>
+      </div>
+
+      <!-- 3D -->
+      <div class="quiz-section snap-section">
+        <iframe
+          src="https://eyes.nasa.gov/apps/solar-system/#/jupiter=true"
+          title="Explore in 3D—Eyes on the Solar System"
+          class="smd-iframe-iframe margin-left-auto margin-right-auto border-0"
+          allow="fullscreen"
+          data-gtm-yt-inspected-12="true"
+        height="600px" width="95%"
+          >Unable to render the provided source</iframe
+        >
+      </div>
+    </div>
+
+    <!-- JavaScript for Carousel and Quiz Interaction -->
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      // Next/previous controls
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+
+      // Thumbnail image controls
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+
+      function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("carousel-slide");
+        const dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+          text.style.display = "block";
+          textUp.style.display = "block";
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+          text.style.display = "none";
+          textUp.style.display = "none";
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+
+      // Quiz interaction
+      document.getElementById("quiz").addEventListener("click", function () {
+        const answer = document.getElementById("quiz-answer");
+        if (answer.style.display === "none" || answer.style.display === "") {
+          answer.style.display = "block";
+        } else {
+          answer.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
