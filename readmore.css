@@ -30,7 +30,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   background-color: #000;
   perspective: 1000px; /* Creates the 3D perspective */
 }
@@ -40,7 +40,8 @@ body {
 }
 
 .hero img {
-  width: 30%;
+  width: 40%;
+  margin-left: 50px;
   transform-style: preserve-3d; /* Ensures the 3D effect is maintained */
   animation: rotate3D 5s ease-in-out infinite alternate; /* Adds 3D rotation animation */
   animation: rotate 10s linear infinite; /* Continuous rotation */
@@ -109,6 +110,10 @@ body {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 20px;
+}
+
+.carousel-content p {
+  margin: 15px;
 }
 
 /* Controls */
@@ -199,4 +204,39 @@ body {
 /* Scrollbar track when active */
 ::-webkit-scrollbar-thumb:active {
   background-color: rgba(255, 255, 255, 0.8); /* Scroll handle when clicked */
+}
+
+.chart {
+  display: flex;
+  justify-content: space-around;
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 40px 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 16px;
+  margin: auto;
+  margin-bottom: 50px;
+  width: 80%;
+}
+
+.chart-item {
+  /* flex: 1; */
+  margin: 0 5px;
+}
+
+.chart-item h3 {
+  margin: 5px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.chart-item p {
+  margin: 5px;
+}
+
+.chart-item span {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00bfff;
 }
